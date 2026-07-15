@@ -10,21 +10,26 @@
   },
   "scripts": {
     "doctor": "node scripts/doctor.mjs",
-    "dev": "pnpm --filter @algoviz/desktop run tauri:dev",
-    "dev:web": "pnpm --filter @algoviz/desktop run dev",
-    "build:web": "pnpm --filter @algoviz/desktop run build",
-    "build:packages": "pnpm -r --filter \"./packages/**\" run build",
+    "dev": "pnpm --filter @algoviz/desktop tauri:dev",
+    "dev:web": "pnpm --filter @algoviz/desktop dev",
+    "build:web": "pnpm --filter @algoviz/desktop build",
+    "build:packages": "pnpm -r --filter \"./packages/**\" build",
     "native:configure": "cmake --preset dev",
     "native:build": "cmake --build --preset dev",
     "native:test": "ctest --preset dev",
-    "test:ts": "pnpm -r --filter \"./packages/**\" run test",
+    "test:ts": "pnpm -r --filter \"./packages/**\" test",
     "test:rust": "cargo test --workspace",
     "test": "pnpm test:ts && pnpm test:rust && pnpm native:test",
-    "typecheck": "pnpm -r run typecheck",
-    "lint:rust": "cargo clippy --workspace --all-targets -- -D warnings",
+    "typecheck": "pnpm -r typecheck",
+    "lint:rust": "cargo clippy --workspace --all-targets --all-features -- -D warnings",
     "format": "prettier --write . && cargo fmt --all",
     "format:check": "prettier --check . && cargo fmt --all -- --check",
-    "clean": "node -e \"require('fs').rmSync('build',{recursive:true,force:true})\""
+    "clean": "node scripts/clean.mjs"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   },
   "devDependencies": {
     "prettier": "^3.5.0",

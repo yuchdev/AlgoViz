@@ -1,9 +1,21 @@
 #pragma once
 
+#include <optional>
 #include <string>
 #include <vector>
 
 namespace algoviz {
+
+struct SourcePosition {
+    int line{};
+    int column{};
+};
+
+struct SourceLocation {
+    std::string path;
+    SourcePosition start;
+    std::optional<SourcePosition> end;
+};
 
 struct DiscoveredObject {
     std::string id;
@@ -12,9 +24,16 @@ struct DiscoveredObject {
     std::string cpp_type;
 };
 
+struct AnalysisDiagnostic {
+    std::string severity;
+    std::string code;
+    std::string message;
+    std::optional<SourceLocation> source;
+};
+
 struct AnalysisResult {
     bool supported{true};
-    std::vector<std::string> diagnostics;
+    std::vector<AnalysisDiagnostic> diagnostics;
     std::vector<DiscoveredObject> objects;
 };
 

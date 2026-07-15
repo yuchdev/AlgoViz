@@ -1,4 +1,5 @@
 add_library(algoviz-runtime STATIC src/runtime.cpp)
+add_library(AlgoViz::Runtime ALIAS algoviz-runtime)
 
 target_include_directories(
     algoviz-runtime

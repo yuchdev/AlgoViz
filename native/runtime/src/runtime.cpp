@@ -1,5 +1,6 @@
 #include "algoviz/runtime.hpp"
 
+#include <iomanip>
 #include <ostream>
 #include <string_view>
 
@@ -9,7 +10,7 @@ namespace {
 void write_escaped_json_string(std::ostream& output, std::string_view value) {
     output << '"';
 
-    for (char ch : value) {
+    for (unsigned char ch : value) {
         switch (ch) {
         case '\\':
             output << "\\\\";
@@ -27,7 +28,16 @@ void write_escaped_json_string(std::ostream& output, std::string_view value) {
             output << "\\t";
             break;
         default:
-            output << ch;
+            if (ch < 0x20U) {
+                const auto flags = output.flags();
+                const auto fill = output.fill();
+                output << "\\u" << std::hex << std::nouppercase << std::setw(4)
+                       << std::setfill('0') << static_cast<int>(ch);
+                output.flags(flags);
+                output.fill(fill);
+            } else {
+                output << static_cast<char>(ch);
+            }
             break;
         }
     }

@@ -1,0 +1,77 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 28,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "dev",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/dev",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "ALGOVIZ_BUILD_CLANG_TOOL": "ON",
+        "ALGOVIZ_BUILD_TESTS": "ON"
+      }
+    },
+    {
+      "name": "release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "ALGOVIZ_BUILD_CLANG_TOOL": "ON",
+        "ALGOVIZ_BUILD_TESTS": "ON"
+      }
+    },
+    {
+      "name": "runtime-only",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/runtime-only",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "ALGOVIZ_BUILD_CLANG_TOOL": "OFF",
+        "ALGOVIZ_BUILD_TESTS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "dev",
+      "configurePreset": "dev"
+    },
+    {
+      "name": "release",
+      "configurePreset": "release"
+    },
+    {
+      "name": "runtime-only",
+      "configurePreset": "runtime-only"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "dev",
+      "configurePreset": "dev",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "release",
+      "configurePreset": "release",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "runtime-only",
+      "configurePreset": "runtime-only",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}

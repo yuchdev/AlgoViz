@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   TRACE_SCHEMA_VERSION,
   applyTraceEvent,
-  type SequenceSwapEvent
+  type SequenceSwapEvent,
 } from "../src/index.js";
 
 describe("applyTraceEvent", () => {
@@ -16,7 +16,7 @@ describe("applyTraceEvent", () => {
       kind: "sequence.swap",
       objectId: "values-1",
       leftIndex: 0,
-      rightIndex: 1
+      rightIndex: 1,
     };
 
     expect(applyTraceEvent(source, event)).toEqual([4, 7, 9]);
@@ -30,11 +30,9 @@ describe("applyTraceEvent", () => {
       kind: "sequence.swap",
       objectId: "values-1",
       leftIndex: 0,
-      rightIndex: 4
+      rightIndex: 4,
     };
 
-    expect(() => applyTraceEvent([1, 2, 3], event)).toThrowError(
-      RangeError
-    );
+    expect(() => applyTraceEvent([1, 2, 3], event)).toThrowError(RangeError);
   });
 });

@@ -3,19 +3,14 @@ interface Props {
   readonly highlightedIndices?: readonly number[];
 }
 
-export function ArrayVisualizer({
-  values,
-  highlightedIndices = []
-}: Props) {
+export function ArrayVisualizer({ values, highlightedIndices = [] }: Props) {
   const highlighted = new Set(highlightedIndices);
 
   return (
     <div className="array">
       {values.map((value, index) => (
         <div
-          className={
-            highlighted.has(index) ? "cell cell--highlighted" : "cell"
-          }
+          className={highlighted.has(index) ? "cell cell--highlighted" : "cell"}
           key={index}
         >
           <small>{index}</small>

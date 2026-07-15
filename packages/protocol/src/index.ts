@@ -35,7 +35,7 @@ export interface AnalysisResult {
 
 export function applyTraceEvent(
   values: readonly number[],
-  event: TraceEvent
+  event: TraceEvent,
 ): readonly number[] {
   if (event.kind === "sequence.created") {
     return [...event.values];
@@ -54,7 +54,7 @@ export function applyTraceEvent(
 
   [next[event.leftIndex], next[event.rightIndex]] = [
     next[event.rightIndex]!,
-    next[event.leftIndex]!
+    next[event.leftIndex]!,
   ];
 
   return next;

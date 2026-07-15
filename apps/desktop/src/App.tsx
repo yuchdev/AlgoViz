@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import {
   TRACE_SCHEMA_VERSION,
   applyTraceEvent,
-  type SequenceSwapEvent
+  type SequenceSwapEvent,
 } from "@algoviz/protocol";
 
 import { ArrayVisualizer } from "./components/ArrayVisualizer";
@@ -17,7 +17,7 @@ const swap: SequenceSwapEvent = {
   kind: "sequence.swap",
   objectId: "values-1",
   leftIndex: 0,
-  rightIndex: 3
+  rightIndex: 3,
 };
 
 export default function App() {
@@ -44,7 +44,9 @@ export default function App() {
 
         <div className="actions">
           <button
-            onClick={() => setValues((current) => applyTraceEvent(current, swap))}
+            onClick={() =>
+              setValues((current) => applyTraceEvent(current, swap))
+            }
             type="button"
           >
             Apply demo swap

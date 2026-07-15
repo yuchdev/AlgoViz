@@ -3,7 +3,5 @@
   "rust-analyzer.check.command": "clippy",
   "cmake.useCMakePresets": "always",
   "cmake.configureOnOpen": false,
-  "clangd.arguments": [
-    "--background-index"
-  ]
+  "clangd.arguments": ["--background-index"]
 }

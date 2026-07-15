@@ -2,7 +2,9 @@
   "name": "@algoviz/tsconfig",
   "version": "0.1.0",
   "private": true,
-  "files": ["base.json"],
+  "files": [
+    "base.json"
+  ],
   "scripts": {
     "build": "node -e \"console.log('No build step for @algoviz/tsconfig')\"",
     "typecheck": "node -e \"console.log('No typecheck step for @algoviz/tsconfig')\"",

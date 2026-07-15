@@ -11,7 +11,7 @@ const tools = [
   { name: "cargo", required: true },
   { name: "cmake", required: true },
   { name: "ninja", required: true },
-  { name: "clang++", required: false }
+  { name: "clang++", required: false },
 ];
 
 let failed = false;

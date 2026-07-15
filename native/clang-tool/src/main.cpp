@@ -110,7 +110,7 @@ void write_json_result(llvm::raw_ostream& output, const algoviz::AnalysisResult&
         output << ",\"kind\":";
         write_escaped_json_string(output, object.kind);
         output << ",\"cppType\":";
-        write_escaped_json_string(output, object.cpp_type);
+        write_escaped_json_string(output, object.cppType);
         output << '}';
     }
 
@@ -139,7 +139,7 @@ public:
             .id = "object-" + std::to_string(result_.objects.size() + 1U),
             .name = declaration->getNameAsString(),
             .kind = "sequence",
-            .cpp_type = declaration->getType().getAsString(policy),
+            .cppType = declaration->getType().getAsString(policy),
         });
     }
 

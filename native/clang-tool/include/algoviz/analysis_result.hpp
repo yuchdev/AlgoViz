@@ -21,7 +21,7 @@ struct DiscoveredObject {
     std::string id;
     std::string name;
     std::string kind;
-    std::string cpp_type;
+    std::string cppType;
 };
 
 struct AnalysisDiagnostic {

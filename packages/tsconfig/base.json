@@ -9,6 +9,8 @@
     "exactOptionalPropertyTypes": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "skipLibCheck": true

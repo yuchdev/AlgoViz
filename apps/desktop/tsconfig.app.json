@@ -11,5 +11,6 @@
     "noEmit": true,
     "types": ["vite/client"]
   },
-  "include": ["src", "../../packages/protocol/src/**/*.ts"]
+  "include": ["src", "../../packages/protocol/src/**/*.ts"],
+  "references": [{ "path": "../../packages/protocol" }]
 }

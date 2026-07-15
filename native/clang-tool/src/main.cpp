@@ -43,6 +43,7 @@ void write_escaped_json_string(llvm::raw_ostream& output, std::string_view value
         default:
             if (ch < 0x20U) {
                 static constexpr char kDigits[] = "0123456789abcdef";
+                // Emit JSON control-byte escapes as \u00XX.
                 output << "\\u00" << kDigits[(ch >> 4U) & 0x0FU]
                        << kDigits[ch & 0x0FU];
             } else {

@@ -1,0 +1,34 @@
+{
+  "name": "algoviz",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@10.0.0",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10"
+  },
+  "scripts": {
+    "doctor": "node scripts/doctor.mjs",
+    "dev": "pnpm --filter @algoviz/desktop run tauri:dev",
+    "dev:web": "pnpm --filter @algoviz/desktop run dev",
+    "build:web": "pnpm --filter @algoviz/desktop run build",
+    "build:packages": "pnpm -r --filter \"./packages/**\" run build",
+    "native:configure": "cmake --preset dev",
+    "native:build": "cmake --build --preset dev",
+    "native:test": "ctest --preset dev",
+    "test:ts": "pnpm -r --filter \"./packages/**\" run test",
+    "test:rust": "cargo test --workspace",
+    "test": "pnpm test:ts && pnpm test:rust && pnpm native:test",
+    "typecheck": "pnpm -r run typecheck",
+    "lint:rust": "cargo clippy --workspace --all-targets -- -D warnings",
+    "format": "prettier --write . && cargo fmt --all",
+    "format:check": "prettier --check . && cargo fmt --all -- --check",
+    "clean": "node -e \"require('fs').rmSync('build',{recursive:true,force:true})\""
+  },
+  "devDependencies": {
+    "prettier": "^3.5.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.0.0"
+  }
+}

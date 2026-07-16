@@ -1,6 +1,6 @@
 # AlgoViz
 
-AlgoViz is a GitHub-ready monorepo for a desktop application that will analyze C++ algorithms and visualize their execution. This bootstrap initializes the repository with runnable stubs, shared contracts, native build entry points, and CI workflows without implementing the Milestone 1 feature set.
+AlgoViz is a desktop application that will analyze C++ algorithms and visualize their execution. This bootstrap initializes the repository with runnable stubs, shared contracts, native build entry points, and CI workflows without implementing the Milestone 1 feature set.
 
 ## Purpose
 
